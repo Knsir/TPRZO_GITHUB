@@ -32,14 +32,15 @@ public class Gerer1Client {
             while(Req != null) {
 
 
-                GererProto gp = new GererProto();
+                GererProto gp = new GererProto(liste,Req);
                 String Rep = gp.travail(Req);
                 sortieSocket.println(Rep);
-               Req = entreeSocket.readLine();
+                Req = entreeSocket.readLine();
            }
             ss.close();
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
+        }
+        catch (IOException e) {
+            System.out.println("Gerer1Client ERROR");
         }
 
     }

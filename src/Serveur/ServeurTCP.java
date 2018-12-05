@@ -30,7 +30,7 @@ public class ServeurTCP {
             ssg.close();
         }
         catch(IOException e){
-            System.out.println(e.getMessage());
+            System.out.println("ServeurTCP ERROR");
         }
     }
 }

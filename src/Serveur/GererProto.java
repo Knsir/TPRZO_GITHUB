@@ -8,16 +8,23 @@ import java.io.PrintStream;
  */
 public class GererProto {
 
-    private ListeAuth liste;
+    private ListeAuth l;
     private String chaine;
+    private String login;
+    private String password;
+
     //private PrintStream sortieSocket;
+
+
+    public GererProto(ListeAuth l, String chaine) {
+        this.l = l;
+        this.chaine = chaine;
+    }
 
     public String travail(String Req) {
         String reponse = "ERROR : souci inconnu";
         // decoupage
-        System.out.println(Req);
-        System.out.println(chaine);
-       chaine=Req;
+        //chaine=Req;
             if (chaine != null) {
                 System.out.println("Rentre dans la boucle");
                 String tab[] = chaine.split(" ");
@@ -25,16 +32,19 @@ public class GererProto {
                 System.out.println(tab[0]);
                 System.out.println(tab.length);
                 if (tab.length == 3) {
-                    System.out.println("pre pre Test");
                     switch (tab[0]){
                         case "chk":
-                            reponse="Good";
-                            if (liste.tester(tab[1], tab[2])) {
-                                reponse = "GOOD";
+                            login=tab[1];
+                            password=tab[2];
+                            System.out.println("Login: "+login);
+                            System.out.println("PAssword: "+password);
+                            if(l.tester(login,password)){
+                                reponse="Good";
                             }
                             break;
                         default:
-                            reponse="probleme Switch";
+                            System.out.println("Problème de frappe");
+                            break;
                     }
                 }
             }
