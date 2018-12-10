@@ -28,6 +28,7 @@ public class Main {
                 System.out.println("Le lanceur UDP est lancé");
                 Serveur_UDP srv = new Serveur_UDP(28414);
                 srv.work();
+                break;
             default:
                 System.out.println("Erreur de Frappe");
                 break;
