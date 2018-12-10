@@ -2,6 +2,7 @@ package Modularité;
 
 import Serveur.ClientTCP;
 import Serveur.ServeurTCP;
+import Serveur_UDP.Serveur_UDP;
 //import ServeurUDP.ServeurUDP;
 
 import java.io.IOException;
@@ -20,8 +21,13 @@ public class Main {
         switch(clav){
             case "1":
                 System.out.println("Le lanceur TCP est lancé");
-                ServeurTCP s=new ServeurTCP(28414);
+                ServeurTCP s = new ServeurTCP(28414);
                 s.travail();
+                break;
+            case "2":
+                System.out.println("Le serveur UDP est lancé");
+                Serveur_UDP sudp=new Serveur_UDP(28414);
+                sudp.work();
                 break;
             default:
                 System.out.println("Erreur de Frappe");

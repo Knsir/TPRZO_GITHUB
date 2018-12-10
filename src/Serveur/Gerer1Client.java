@@ -28,12 +28,13 @@ public class Gerer1Client {
             // Construction d'un PrintStream pour envoyer du texte à travers la connexion socket
             PrintStream sortieSocket = new PrintStream(ss.getOutputStream());
 
+            //On verifie que la requette ne sot pas nulle
             String Req = entreeSocket.readLine();
             while(Req != null) {
-
-
+                //On gere le protocole
                 GererProto gp = new GererProto(liste,Req);
                 String Rep = gp.travail(Req);
+
                 sortieSocket.println(Rep);
                 Req = entreeSocket.readLine();
            }

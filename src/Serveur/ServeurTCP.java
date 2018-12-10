@@ -7,7 +7,7 @@ import java.net.Socket;
  */
 public class ServeurTCP {
 
-    private ListeAuth liste;
+    //private ListeAuth liste;
     private int port;
 
     public ServeurTCP( int port) {
@@ -15,18 +15,17 @@ public class ServeurTCP {
     }
 
 
-    /*public static void serveur(){
-       Gerer1Client.(ssg,liste);
-    }*/
-
-
     public  void travail(){
         //creation serveur
         try {
             ServerSocket ssg = new ServerSocket(port);
             Socket ss = ssg.accept();
-            Gerer1Client gc = new Gerer1Client(liste,ss);
+
+            ListeAuth l=new ListeAuth();
+            //Gestion du client
+            Gerer1Client gc = new Gerer1Client(l,ss);
             gc.travail();
+            //Fermeture Socket
             ssg.close();
         }
         catch(IOException e){

@@ -26,7 +26,6 @@ public class GererProto {
         // decoupage
         //chaine=Req;
             if (chaine != null) {
-                System.out.println("Rentre dans la boucle");
                 String tab[] = chaine.split(" ");
                 reponse = "BAD";
                 System.out.println(tab[0]);
@@ -36,8 +35,6 @@ public class GererProto {
                         case "chk":
                             login=tab[1];
                             password=tab[2];
-                            System.out.println("Login: "+login);
-                            System.out.println("PAssword: "+password);
                             if(l.tester(login,password)){
                                 reponse="Good";
                             }
